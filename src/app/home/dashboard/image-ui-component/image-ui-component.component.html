@@ -1,0 +1,51 @@
+<!--Add images section-->
+<div class="container" id="image-input-card">
+  <ng-form>
+  <div class="row">
+
+    <div class="col-sm-2"></div>
+
+  <div class="col-sm"><input required="true" #name type="text"  class="input-image-component" placeholder="Enter Battery Model Name"/></div>
+  <div class="col-sm"><input #url type="text"   class="input-image-component" placeholder="Enter Image Link"/></div>
+  <div class="col-sm-3" id="image-input-button"><button class="btn btn-primary mt-5" (click)="insertImage(url.value)">Add Image</button></div>
+
+</div>
+  </ng-form>
+</div>
+
+
+
+<div class="container image-table">
+  <div class="row">
+    <div class="col">
+
+
+
+        <table class="table">
+          <thead>
+          <tr>
+            <th scope="col">Image ID</th>
+            <th scope="col">Model Name</th>
+            <th scope="col">Add Image Link</th>
+            <th scope="col">Action</th>
+            <th scope="col">Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let image of imageList | keyvalue">
+            <th scope="row">{{image.key}}</th>
+            <td>{{image.value}}</td>
+            <td><input #updatedUrl type="text" placeholder="Enter image link to update"></td>
+            <td><button class="btn btn-primary btn-large" (click)="updateImage(updatedUrl.value,Number(image.key))">Update</button></td>
+            <td><button class="btn btn-danger btn-large" (click)="deleteImage(Number(image.key))">Delete</button></td>
+          </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+

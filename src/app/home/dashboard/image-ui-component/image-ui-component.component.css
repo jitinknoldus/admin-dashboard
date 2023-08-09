@@ -1,0 +1,36 @@
+.input-image-component{
+  width: 100%;
+  height: 5vh;
+  border: 2px solid #0096C7;
+  outline-style: none;
+  border-radius: 10px;
+  padding-left: 20px;
+}
+
+.input-image-component{
+  margin-top: 50px;
+}
+
+#image-input-card{
+  margin-top: 20px;
+  /*border: 1px solid #000000;*/
+  background-color: #0096C7;
+  height: 15vh;
+}
+
+#image-input-button{
+  margin-top: 5px;
+}
+
+#image-input-button >button{
+  margin-top: 50px;
+  background-color: #023E8A;
+  color: #fff;
+}
+
+.image-table{
+  margin-top: 50px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  /*border: 1px   solid black;*/
+  background-color: #fff;
+}
