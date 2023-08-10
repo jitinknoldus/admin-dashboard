@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {ImageData} from "../../../Model/ImageData";
 
 
 @Component({
@@ -9,16 +10,33 @@ import { Component } from '@angular/core';
 export class ImageUiComponentComponent {
 
   imageUrl = '';
+  model = '';
   imageId: number = 1001;
 
 
   // imageList: Array<{ imageId:number,imageUrl: string }> = [];
-  imageList: { [id: number]: string } = {};
+  imageList: { [id: number]: ImageData } = {};
 
-  insertImage(imageUrl: string) {
-    this.imageUrl = imageUrl;
-    if(imageUrl!=''){
-      this.imageList[this.imageId] = this.imageUrl;
+  images:{[id:number]:ImageData}={}
+
+
+
+  // daloImage(model:string, imageUrl:string){
+  //     console.log(model);
+  //     console.log(imageUrl);
+  //     let m =  model;
+  //     let i = imageUrl;
+  //     // this.images[this.imageId] = newImageData(model,imageUrl);
+  //     const newImageData:ImageData = {model,imageUrl};
+  //     this.images[this.imageId] = newImageData;
+  //     this.imageId += 1;
+  //     console.log(this.images);
+  // }
+
+  insertImage(model:string,imageUrl: string) {
+    if(imageUrl!='' && model!='' ){
+      const newImageData:ImageData = {model,imageUrl};
+      this.imageList[this.imageId] = newImageData;
       this.imageId += 1;
     }
     console.log(this.imageList);
@@ -30,7 +48,7 @@ export class ImageUiComponentComponent {
     for (const key in this.imageList) {
       if (this.imageList.hasOwnProperty(key)) {
         if (Number(key) === imageId) {
-          this.imageList[key] = updatedImageUrl;
+          this.imageList[key].imageUrl = updatedImageUrl;
         }
       }
     }
@@ -49,4 +67,6 @@ export class ImageUiComponentComponent {
 
 
   protected readonly Number = Number;
+  // protected readonly String = String;
+  // protected readonly Number = Number;
 }
