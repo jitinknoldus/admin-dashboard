@@ -1,16 +1,11 @@
 <!--Add images section-->
 <div class="container" id="image-input-card">
-  <ng-form>
   <div class="row">
-
     <div class="col-sm-2"></div>
-
   <div class="col-sm"><input required="true" #model type="text"  class="input-image-component" placeholder="Enter Battery Model Name"/></div>
   <div class="col-sm"><input #url type="text"   class="input-image-component" placeholder="Enter ImageData Link"/></div>
   <div class="col-sm-3" id="image-input-button"><button class="btn btn-primary mt-5" (click)="insertImage(model.value,url.value)">Add ImageData</button></div>
-
 </div>
-  </ng-form>
 </div>
 
 

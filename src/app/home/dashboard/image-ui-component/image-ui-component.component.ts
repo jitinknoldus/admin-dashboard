@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {ImageData} from "../../../Model/ImageData";
 
 
@@ -9,39 +9,27 @@ import {ImageData} from "../../../Model/ImageData";
 })
 export class ImageUiComponentComponent {
 
-  imageUrl = '';
-  model = '';
+
   imageId: number = 1001;
 
 
-  // imageList: Array<{ imageId:number,imageUrl: string }> = [];
   imageList: { [id: number]: ImageData } = {};
 
-  images:{[id:number]:ImageData}={}
-
-
-
-  // daloImage(model:string, imageUrl:string){
-  //     console.log(model);
-  //     console.log(imageUrl);
-  //     let m =  model;
-  //     let i = imageUrl;
-  //     // this.images[this.imageId] = newImageData(model,imageUrl);
-  //     const newImageData:ImageData = {model,imageUrl};
-  //     this.images[this.imageId] = newImageData;
-  //     this.imageId += 1;
-  //     console.log(this.images);
-  // }
-
+  /*
+  * function to insert image link in the database.
+  * */
   insertImage(model:string,imageUrl: string) {
     if(imageUrl!='' && model!='' ){
-      const newImageData:ImageData = {model,imageUrl};
-      this.imageList[this.imageId] = newImageData;
+      this.imageList[this.imageId] = {model, imageUrl};
       this.imageId += 1;
     }
     console.log(this.imageList);
   }
 
+
+  /*
+* function to update image link of the existing image in the database.
+* */
   updateImage(updatedImageUrl:string, imageId:number){
    console.log(updatedImageUrl);
    console.log(imageId);
@@ -55,6 +43,9 @@ export class ImageUiComponentComponent {
     console.log(this.imageList);
   }
 
+  /*
+* function to delete image from the database.
+* */
   deleteImage(imageId:number){
     if (this.imageList.hasOwnProperty(imageId)) {
       delete this.imageList[imageId];
@@ -67,6 +58,5 @@ export class ImageUiComponentComponent {
 
 
   protected readonly Number = Number;
-  // protected readonly String = String;
-  // protected readonly Number = Number;
+
 }
